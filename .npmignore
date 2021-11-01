@@ -1,0 +1,5 @@
+gen
+src
+node_modules
+Makefile
+*.log
