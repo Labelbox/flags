@@ -1,6 +1,8 @@
 # flags
-
 Generates source code artifacts based on [LaunchDarkly](https://launchdarkly.com/) feature flags
+
+## Build Status
+[![Codefresh build status]( https://g.codefresh.io/api/badges/pipeline/labelbox/Miscellaneous%2Fflags?type=cf-1&key=eyJhbGciOiJIUzI1NiJ9.NWQzNzdlNjVmZWI4NjYzYzk4ZDgxMjIx.GwskoPRs5bgpPN9L4pAIr0UKTw5C2pbiQu5T-FtNRvM)]( https://g.codefresh.io/pipelines/edit/new/builds?id=62bb84fcafdeddcee90e9348&pipeline=flags&projects=Miscellaneous&projectId=62bb84d2afdeddd10d0e9347)
 
 ## @labelbox/flags
 

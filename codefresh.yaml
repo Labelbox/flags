@@ -1,0 +1,40 @@
+version: '1.0'
+stages:
+ - prepare
+ - build
+ - push
+steps:
+  main_clone:
+    title: Cloning main repository...
+    stage: prepare
+    type: git-clone
+    repo: 'Labelbox/flags'
+    revision: ${{CF_BRANCH}}
+    git: github-integration
+  build_image:
+    title: Building Docker Image
+    stage: build
+    type: build
+    image_name: container/flags
+    working_directory: ./
+    dockerfile: Dockerfile
+    tag: '${{CF_SHORT_REVISION}}'
+    registry: lb-artifacts-testing-rw
+  push_to_registry:
+    title: Pushing to Docker Registry
+    stage: push
+    type: push
+    candidate: '${{build_image}}'
+    tag: '${{CF_SHORT_REVISION}}'
+    registry: lb-artifacts-testing-rw
+  push_as_latest:
+    title: Pushing to Docker Registry
+    stage: push
+    type: push
+    candidate: '${{build_image}}'
+    tag: 'latest'
+    registry: lb-artifacts-testing-rw
+    when:
+      branch:
+        only:
+          - main
