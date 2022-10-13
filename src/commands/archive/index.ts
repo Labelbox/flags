@@ -17,7 +17,7 @@ class ArchiveFlagsCommand extends Command {
     }),
     dryRun: flags.boolean({
       required: false,
-      description: 'Do ',
+      description: 'Do not execute mutation. Just print what would happen.',
     }),
   };
 

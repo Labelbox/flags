@@ -53,3 +53,30 @@ flags evaluations \
  --env production \
  --platform server > flags.yaml
 ```
+
+
+### Archive flags
+
+Archives a set of input feature flags by key.
+
+If input flag does not exist or is already archived, the flag is ignored.
+
+```
+Archive feature flags. This takes affect across all LD environments
+
+USAGE
+  $ flags archive [FEATURE_FLAG_KEYS]
+
+OPTIONS
+  --apiKey=apiKey  (required) Launchdarkly API key
+  --dryRun         Do not execute mutation. Just print what would happen.
+
+```
+
+### Example
+
+```shell
+flags archive \
+ --apiKey $LD_API_KEY \
+ flag-one flag-two flag-three
+```
