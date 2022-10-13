@@ -16,6 +16,9 @@ export const parseApiResponse = ({
       : () => true;
   return apiResponse.items.filter(filter).map((item) => {
     const variationIndex = item.environments[envName].fallthrough.variation;
+    if(!item.variations[variationIndex]) {
+      console.error(`Flag variation screwed up`, item.environments[envName] );
+    }
     return {
       key: item.key,
       value: formatValue(item.variations[variationIndex].value),
